@@ -1,0 +1,32 @@
+$ java tests.BMTest
+Creating database...
+Replacer: Clock
+
+Running buffer manager tests...
+
+  Test 1 does a simple test of normal buffer manager operations:
+  - Allocate a bunch of new pages
+  - Write something on each one
+  - Read that something back from each one
+   (because we're buffering, this is where most of the writes happen)
+  - Free the pages again
+  Test 1 completed successfully.
+
+  Test 2 exercises some illegal buffer manager operations:
+  - Try to pin more pages than there are frames
+  --> Failed as expected
+
+  - Try to free a doubly-pinned page
+  --> Failed as expected
+
+  - Try to unpin a page not in the buffer pool
+  --> Failed as expected
+
+  Test 2 completed successfully.
+
+  Test 3 exercises some of the internals of the buffer manager
+  - Allocate and dirty some new pages, one at a time, and leave some pinned
+  - Read the pages
+  Test 3 completed successfully.
+
+All buffer manager tests completed successfully!
