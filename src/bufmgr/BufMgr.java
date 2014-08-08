@@ -40,16 +40,15 @@ public class BufMgr implements GlobalConst {
       this.numframes = numframes;
       frametab = new FrameDescriptor[numframes];
       bufferPool = new Page[numframes];
-      pageFrameTable = new Hashtable<>();
+      pageFrameTable = new Hashtable<Integer, FrameDescriptor>();
       clock = new Clock(this);
+      initializeArrays();
   }
   
-  public void initializeFrametab() {
-    for(int i = 0; i < frametab.length; i++)
+  public void initializeArrays() {
+    for(int i = 0; i < frametab.length; i++) {
         frametab[i] = new FrameDescriptor();
-    if (bufferPool[0]== null){
-        for(int i = 0; i < numframes; i++)
-            bufferPool[i] = new Page();
+        bufferPool[i] = new Page();
     }
         
   }
