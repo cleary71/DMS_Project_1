@@ -20,18 +20,8 @@ public class Clock extends Replacer{
     public Clock(BufMgr bufferManager) {
         super(bufferManager);
         this.frametab = bufferManager.frametab;
-        if (bufferManager.frametab[0]== null)
-            bufferManager.initializeFrametab();
-       
-     System.out.println("Clock bufmgr is " + bufferManager.frametab[0] + " " + frametab);
-         count = 0;
-        setUp();
+        count = 0;
      }
-    
-    public void setUp() {
-        for(int i = 0; i < frametab.length; i++)
-            frametab[i] = new FrameDescriptor();
-    }
     
     @Override
     public void newPage(FrameDescriptor fdesc) {
