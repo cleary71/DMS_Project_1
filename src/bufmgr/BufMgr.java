@@ -122,8 +122,10 @@ public class BufMgr implements GlobalConst {
                 frametab[frameNumber].setPageId(pageno);
             }
  
-            if (pageFrameTable.replace(pageno.pid, frametab[frameNumber]) == null)
-                    pageFrameTable.put(pageno.pid, frametab[frameNumber]);
+            if (pageFrameTable.containsKey(pageno.pid)) {
+            	pageFrameTable.remove(pageno.pid)
+            }
+            pageFrameTable.put(pageno.pid, frametab[frameNumber]);
 
         }
     }
