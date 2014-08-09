@@ -123,7 +123,7 @@ public class BufMgr implements GlobalConst {
             }
  
             if (pageFrameTable.containsKey(pageno.pid)) {
-            	pageFrameTable.remove(pageno.pid)
+            	pageFrameTable.remove(pageno.pid);
             }
             pageFrameTable.put(pageno.pid, frametab[frameNumber]);
 
